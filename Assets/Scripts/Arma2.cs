@@ -27,7 +27,7 @@ public class Arma2 : MonoBehaviour
     {
         proyectileRb = Instantiate(proyectil1, fireposition.position, playerangle.rotation);
         proyectileRb.AddRelativeForce(Vector2.up * proyectileForce, ForceMode2D.Impulse);
-        
+
 
     }
 

@@ -7,6 +7,8 @@ TagManager:
   - Proyectil1
   - Proyectil2
   - Weapons
+  - PowerUps_Arma2T1
+  - PowerUps_Arma2T2
   layers:
   - Default
   - TransparentFX

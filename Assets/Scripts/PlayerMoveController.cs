@@ -9,10 +9,13 @@ public class PlayerMoveController : MonoBehaviour
     public float movespeed = 5f;
     public float maxSpeed = 5f;
     private Vector2 movement;
-    public GameObject proyectil2;
+   // public GameObject proyectil2;
 
     private Arma1[] proyectile1;
     private Arma2[] proyectile2;
+
+
+    public float fireRatio = 0.1f;
 
     void Start()
     {
@@ -22,12 +25,14 @@ public class PlayerMoveController : MonoBehaviour
 
     void Update()
     {
+
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
         movement.Normalize();
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
         {
+
             Attack1();
         }
 
