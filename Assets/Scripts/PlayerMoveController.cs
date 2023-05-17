@@ -15,11 +15,14 @@ public class PlayerMoveController : MonoBehaviour
     private Arma2[] proyectile2;
 
 
-    public float fireRatio = 0.1f;
-
+    public float fireRatioAttack1 = 0.1f;
+    public float fireRatioAttack2 = 1f;
+    private bool attack1Wait;
+    private bool attack2Wait;
     void Start()
     {
         playerRb = GetComponent<Rigidbody2D>();
+        attack1Wait = false;
         //   movement.z = 0;
     }
 
@@ -30,15 +33,15 @@ public class PlayerMoveController : MonoBehaviour
         movement.y = Input.GetAxisRaw("Vertical");
         movement.Normalize();
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && !attack1Wait)
         {
 
-            Attack1();
+            StartCoroutine(Attack1());
         }
 
-        if(Input.GetMouseButtonDown(1))
+        if(Input.GetMouseButtonDown(1) && !attack2Wait)
             {
-            Attack2();
+            StartCoroutine(Attack2());
         }
 
 
@@ -61,7 +64,7 @@ public class PlayerMoveController : MonoBehaviour
         }
     }
 
-    private void Attack1()
+    IEnumerator Attack1()
     {
         //  
 
@@ -71,10 +74,13 @@ public class PlayerMoveController : MonoBehaviour
         {
             proyectile1[i].Fire();
         }
-        Debug.Log("attack 1");
+        attack1Wait=true;
+        yield return new WaitForSecondsRealtime(fireRatioAttack1);
+        attack1Wait = false;
+       // Debug.Log("attack 1");
     }
 
-    private void Attack2()
+    IEnumerator Attack2()
     {
 
        
@@ -85,13 +91,15 @@ public class PlayerMoveController : MonoBehaviour
         {
             proyectile2[i].Fire();
         }
+        attack2Wait = true;
+        yield return new WaitForSecondsRealtime(fireRatioAttack2);
+        attack2Wait = false;
 
 
 
 
 
-
-        Debug.Log("attack 2");
+        //Debug.Log("attack 2");
 
     }
 

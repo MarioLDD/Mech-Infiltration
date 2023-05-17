@@ -9,15 +9,18 @@ TagManager:
   - Weapons
   - PowerUps_Arma2T1
   - PowerUps_Arma2T2
+  - WeaponLaser_Double
+  - MissileLauncher_Double
+  - Enemy
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
-  - 
+  - Barrier
+  - Enemys
   - 
   - 
   - 

@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class SelectorWeapons : MonoBehaviour
 {
-    public GameObject[] weapon;
+    public GameObject weaponLaser_Simple;
+    public GameObject weaponLaser_Double;
+    public GameObject missileLauncher_Simple;
+    public GameObject missileLauncher_Double;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,35 +23,18 @@ public class SelectorWeapons : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("PowerUps_Arma2T1"))
+        if (collision.gameObject.CompareTag("WeaponLaser_Double"))
         {
-            for (int i = 0; i < weapon.Length; i++)
-            {
-                weapon[i].SetActive(false);
-            }
-            weapon[1].SetActive(true);
+            weaponLaser_Simple.SetActive(false);
+            weaponLaser_Double.SetActive(true);
         }
 
-        if (collision.gameObject.CompareTag("PowerUps_Arma2T2"))
+        if (collision.gameObject.CompareTag("MissileLauncher_Double"))
         {
-            for (int i = 0; i < weapon.Length; i++)
-            {
-                weapon[i].SetActive(false);
-            }
-            weapon[3].SetActive(true);
+            missileLauncher_Simple.SetActive(false);
+            missileLauncher_Double.SetActive(true);
         }
-
-
-
-
-
-
-
-
 
         Destroy(collision.gameObject);
-
-
-
     }
 }

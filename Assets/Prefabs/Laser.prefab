@@ -146,3 +146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cefabf1105895b4ab0c5990bd0fc4bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 1
+  particleSistem: {fileID: 6186866362206549182, guid: aaf336c7d7e1eb24590ac632c470f99d, type: 3}
+  target: Enemy

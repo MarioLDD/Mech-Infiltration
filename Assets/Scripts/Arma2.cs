@@ -7,10 +7,10 @@ using UnityEngine;
 public class Arma2 : MonoBehaviour
 {
     private Rigidbody2D proyectileRb;
-    public Rigidbody2D proyectil1;
+
+    public Rigidbody2D misilesPrefabs;
     private Transform playerangle;
     public Transform fireposition;
-    public float proyectileForce = 10;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,8 +25,8 @@ public class Arma2 : MonoBehaviour
     }
     public void Fire()
     {
-        proyectileRb = Instantiate(proyectil1, fireposition.position, playerangle.rotation);
-        proyectileRb.AddRelativeForce(Vector2.up * proyectileForce, ForceMode2D.Impulse);
+        proyectileRb = Instantiate(misilesPrefabs, fireposition.position, playerangle.rotation);
+        
 
 
     }
