@@ -13,7 +13,7 @@ public class Laser : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(gameObject, 2f);
+        //Destroy(gameObject, 2f);
     }
     
     private void OnCollisionEnter2D(Collision2D collision)
@@ -22,7 +22,20 @@ public class Laser : MonoBehaviour
         if(collision.gameObject.CompareTag(target))
         {
             Debug.Log(target);
-            collision.gameObject.GetComponent<HealthSystem>().TakeDamage(damage);
+            if (collision.gameObject.GetComponent<HealthSystem>())
+            {
+                collision.gameObject.GetComponent<HealthSystem>().TakeDamage(damage);
+
+            }
+            else if(collision.gameObject.GetComponent<HealthSystemWalls>())
+            {
+                collision.gameObject.GetComponent<HealthSystemWalls>().TakeDamage(damage);
+
+            }
+            else
+            {
+                collision.gameObject.GetComponent<HealthSystemBoss>().TakeDamage(damage);
+            }
         }
         Instantiate(particleSistem, transform.position, Quaternion.identity);
 

@@ -6,21 +6,23 @@ using UnityEngine;
 public class CamaraController : MonoBehaviour
 {
     public float rotateSpeed = 0.01f;
-    
-    private bool isRotating;
-    
+    public bool isRotating;
     // Start is called before the first frame update
     void Start()
-    {        
-        isRotating = false;
+    {
+        isRotating = true;
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if (isRotating)
         {
             transform.Rotate(Vector3.forward * -rotateSpeed);
         } 
+
+
+
+
     } 
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8216621669141490473}
   - component: {fileID: -5880137366897126980}
   - component: {fileID: -1659976652223153225}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bullets
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  particleSistem: {fileID: 6186866362206549182, guid: aaf336c7d7e1eb24590ac632c470f99d, type: 3}
   target: Player
 --- !u!58 &-1659976652223153225
 CircleCollider2D:

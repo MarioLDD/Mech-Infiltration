@@ -104,7 +104,7 @@ MonoBehaviour:
   radioExplision: 3
   capasObjetos:
     serializedVersion: 2
-    m_Bits: 136
+    m_Bits: 128
   particleSistem: {fileID: 4366761397106909146, guid: 56c45f79c08bcbe4e8c547df237ffd13, type: 3}
 --- !u!50 &4804290298725237595
 Rigidbody2D:

@@ -30,7 +30,25 @@ public class Misil : MonoBehaviour
         foreach (Collider2D objeto in collisionObj)
         {
             Debug.Log("Objeto colisionado: " + objeto.gameObject.name);
-            objeto.gameObject.GetComponent<HealthSystem>().TakeDamage(damage);
+
+
+
+            if(collision.gameObject.GetComponent<HealthSystem>())
+            {
+                collision.gameObject.GetComponent<HealthSystem>().TakeDamage(damage);
+
+            }
+            else if (collision.gameObject.GetComponent<HealthSystemWalls>())
+            {
+                collision.gameObject.GetComponent<HealthSystemWalls>().TakeDamage(damage);
+
+            }
+            else
+            {
+                collision.gameObject.GetComponent<HealthSystemBoss>().TakeDamage(damage);
+            }
+
+
         }
         Instantiate(particleSistem, transform.position, Quaternion.identity);
         Destroy(gameObject);
