@@ -24,11 +24,11 @@ public class FloatingHealthBarWALL : MonoBehaviour
         //transform.position = transform.root.position + offset;
     }
 
-    public void UpdateHealthBar(int currentValue, int maxValue)
+    public void UpdateHealthBar(float currentValue, float maxValue)
     {
         if(slider != null)
         {
-            Debug.Log("chau " + currentValue + " / " + maxValue);
+           // Debug.Log("chau " + currentValue + " / " + maxValue);
 
         }
 

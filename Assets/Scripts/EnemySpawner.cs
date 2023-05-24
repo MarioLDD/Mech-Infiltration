@@ -15,10 +15,12 @@ public class EnemySpawner : MonoBehaviour
     public float fireRate = 0.5f;
     private float nextFireTime;
 
+    private Transform enemyParent;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        enemyParent = GameObject.FindGameObjectWithTag("EnemyParent").transform;
     }
 
     // Update is called once per frame
@@ -39,6 +41,7 @@ public class EnemySpawner : MonoBehaviour
             transform.eulerAngles = new Vector3(0, 0, angle);
 
             proyectileRb = Instantiate(bullet, transform.position, Quaternion.identity);
+            proyectileRb.transform.SetParent(enemyParent);
             nextFireTime = Time.time + fireRate;
 
         }

@@ -12,6 +12,8 @@ TagManager:
   - WeaponLaser_Double
   - MissileLauncher_Double
   - Enemy
+  - Wall
+  - EnemyParent
   layers:
   - Default
   - TransparentFX
@@ -23,8 +25,8 @@ TagManager:
   - Enemys
   - Bullets
   - Walls
-  - 
-  - 
+  - Laser
+  - Misiles
   - 
   - 
   - 

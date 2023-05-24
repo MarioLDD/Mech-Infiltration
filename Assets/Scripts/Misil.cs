@@ -11,11 +11,22 @@ public class Misil : MonoBehaviour
     public float radioExplision = 5;
     public LayerMask capasObjetos;
     public GameObject particleSistem;
-    // Start is called before the first frame update
+
+    private GameObject parentObject;
+
     void Start()
     {
         proyectileRb = GetComponent<Rigidbody2D>();
         Destroy(gameObject, 60f);
+        /*
+        if (transform.parent.gameObject.tag != null)
+        {
+            if (transform.parent.gameObject.CompareTag("Enemy"))
+            {
+                parentObject = transform.parent.gameObject;
+            }
+        }
+        */
     }
 
     // Update is called once per frame
@@ -26,40 +37,47 @@ public class Misil : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Collider2D[] collisionObj = Physics2D.OverlapCircleAll(transform.position, radioExplision, capasObjetos);
-        foreach (Collider2D objeto in collisionObj)
+        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Objeto colisionado: " + objeto.gameObject.name);
+           // if(parentObject != collision.gameObject)
+                {
+                Collider2D[] collisionObj = Physics2D.OverlapCircleAll(transform.position, radioExplision, capasObjetos);
+                foreach (Collider2D objeto in collisionObj)
+                {
+                    Debug.Log("Objeto colisionado: " + objeto.gameObject.name);
 
 
 
-            if(collision.gameObject.GetComponent<HealthSystem>())
-            {
-                collision.gameObject.GetComponent<HealthSystem>().TakeDamage(damage);
+                    if (collision.gameObject.GetComponent<HealthSystem>())
+                    {
+                        collision.gameObject.GetComponent<HealthSystem>().TakeDamage(damage);
 
+                    }
+                    else if (collision.gameObject.GetComponent<HealthSystemWalls>())
+                    {
+                        collision.gameObject.GetComponent<HealthSystemWalls>().TakeDamage(damage);
+
+                    }
+                    else
+                    {
+                        collision.gameObject.GetComponent<HealthSystemBoss>().TakeDamage(damage);
+                    }
+
+
+                }
+                Instantiate(particleSistem, transform.position, Quaternion.identity);
+                Destroy(gameObject);
             }
-            else if (collision.gameObject.GetComponent<HealthSystemWalls>())
-            {
-                collision.gameObject.GetComponent<HealthSystemWalls>().TakeDamage(damage);
-
-            }
-            else
-            {
-                collision.gameObject.GetComponent<HealthSystemBoss>().TakeDamage(damage);
-            }
-
-
+            
         }
-        Instantiate(particleSistem, transform.position, Quaternion.identity);
-        Destroy(gameObject);
     }
-    
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, radioExplision);
     }
-    
 
 
-    }
+
+}

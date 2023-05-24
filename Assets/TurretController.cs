@@ -19,10 +19,14 @@ public class TurretController : MonoBehaviour
     public float fireRate = 0.5f;
     public LayerMask layerToTarget;
 
+    private Transform enemyParent;
+
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        enemyParent = GameObject.FindGameObjectWithTag("EnemyParent").transform;
+
     }
 
     // Update is called once per frame
@@ -43,6 +47,7 @@ public class TurretController : MonoBehaviour
                 if (nextFireTime < Time.time)
                 {
                     proyectileRb = Instantiate(bullet, firePoint.position, Quaternion.identity);
+                    proyectileRb.transform.SetParent(enemyParent);
                     proyectileRb.AddRelativeForce(direction.normalized * proyectileForce, ForceMode2D.Impulse);
                     nextFireTime = Time.time + fireRate;
 
