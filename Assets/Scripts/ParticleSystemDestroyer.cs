@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class ParticleSystemDestroyer : MonoBehaviour
 {
-    private ParticleSystem particleSystem;
+    private ParticleSystem particleSystemExplosion;
 
     private void Start()
     {
-        particleSystem = GetComponent<ParticleSystem>();
+        particleSystemExplosion = GetComponent<ParticleSystem>();
     }
 
     private void Update()
     {
         // Verificar si el Particle System ha terminado de reproducirse
-        if (!particleSystem.IsAlive())
+        if (!particleSystemExplosion.IsAlive())
         {
             // Destruir el objeto que contiene el Particle System
             Destroy(gameObject);

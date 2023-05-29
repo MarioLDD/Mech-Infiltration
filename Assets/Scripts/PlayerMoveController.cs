@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditorInternal.VersionControl;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMoveController : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class PlayerMoveController : MonoBehaviour
     private bool attack2Wait;
     void Start()
     {
+        transform.localPosition = new Vector3(0, -4.85f, 10);
         playerRb = GetComponent<Rigidbody2D>();
         attack1Wait = false;
         //   movement.z = 0;
@@ -44,6 +46,10 @@ public class PlayerMoveController : MonoBehaviour
             StartCoroutine(Attack2());
         }
 
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
 
 
     }

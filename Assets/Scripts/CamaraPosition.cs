@@ -17,19 +17,28 @@ public class CamaraPosition : MonoBehaviour
 
     public GameObject puerta;
     public CamaraController camaraController;
-    public bool walls;
+    [HideInInspector] public bool walls;
     private bool flag;
 
-    private Transform player;
+    public GameObject boss;
+    //public GameObject exitDoor;
+    public GameObject enemysExteriorCircle;
+    public GameObject enemysInteriorCircle;
+
+    private GameObject player;
 
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        transform.localPosition = new Vector3(-33.5f, 0, -10);
+        player = GameObject.FindGameObjectWithTag("Player");
         moveToMiddle = false;
         moveToCenter = false;
         walls = true;
         flag = false;
+        boss.SetActive(false);
+        enemysExteriorCircle.SetActive(true);
+        enemysInteriorCircle.SetActive(false);
     }
 
     // Update is called once per frame
@@ -48,11 +57,13 @@ public class CamaraPosition : MonoBehaviour
 
         if (distanceToStart < 0.1f && camaraController.isRotating)
         {
-            player.position = new Vector3(player.position.x, 0, 10);
+            player.transform.position = new Vector3(player.transform.position.x, 0, 10);
          //   Debug.Log(distanceToStart);
             camaraController.isRotating = false;
             transform.position = startPosition;
             moveToMiddle = true;
+            enemysExteriorCircle.SetActive(false);
+
         }
 
         float distanceToMiddle = Vector2.Distance(transform.position, middlePosition);
@@ -63,7 +74,13 @@ public class CamaraPosition : MonoBehaviour
             transform.position = middlePosition;
 
             camaraController.isRotating = true;
-
+            enemysInteriorCircle.SetActive (true);
+            HealthSystem healthSystem = player.GetComponent<HealthSystem>();
+            healthSystem.CurrenHealth = 5;
+            foreach (GameObject life in healthSystem.vidaUI)
+            {
+                life.SetActive(true);
+            }
         }
 
         if (distanceToMiddle < 0.1f && !walls)
@@ -83,6 +100,7 @@ public class CamaraPosition : MonoBehaviour
             moveToCenter = false;
             transform.position = centerPosition;
             camaraController.isRotating = true;
+            boss.SetActive(true);
         }
     }
 

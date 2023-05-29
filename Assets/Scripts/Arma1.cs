@@ -29,8 +29,8 @@ public class Arma1 : MonoBehaviour
     }
     public void Fire()
     {
+        Debug.Log("laser");
         proyectileRb = Instantiate(proyectil1, fireposition.position, playerangle.rotation);
-        proyectileRb.transform.SetParent(enemyParent);
 
         proyectileRb.AddRelativeForce(Vector2.up * proyectileForce, ForceMode2D.Impulse);
 

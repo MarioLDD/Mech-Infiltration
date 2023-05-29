@@ -142,7 +142,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3772127232213609752}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -26.26, y: 16.14, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -170,8 +170,8 @@ MonoBehaviour:
   firePoint: {fileID: 3772127230580733281}
   shootingRange: 10
   retreatDistance: 5
-  proyectileForce: 10
-  fireRate: 0.5
+  proyectileForce: 7
+  fireRate: 0.7
 --- !u!60 &5112631545943888548
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -213,6 +213,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
+  player: 0
+  boss: 0
+  vidaUI: []
 --- !u!1001 &6240515968919278424
 PrefabInstance:
   m_ObjectHideFlags: 0

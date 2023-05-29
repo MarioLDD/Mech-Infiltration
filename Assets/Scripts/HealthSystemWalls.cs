@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class HealthSystemWalls : MonoBehaviour
+public class HealthSystemWalls : MonoBehaviour, IHealthSystem
 {
     public int maxHealth = 700;
-    public int currentHealth;
+    private int currentHealth;
 
     private SpriteRenderer spriteWalls;
 

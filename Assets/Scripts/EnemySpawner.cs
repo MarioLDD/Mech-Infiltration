@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
@@ -16,6 +17,10 @@ public class EnemySpawner : MonoBehaviour
     private float nextFireTime;
 
     private Transform enemyParent;
+    public TMP_Text scoreText;
+
+    public int point = 10;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,7 +46,7 @@ public class EnemySpawner : MonoBehaviour
             transform.eulerAngles = new Vector3(0, 0, angle);
 
             proyectileRb = Instantiate(bullet, transform.position, Quaternion.identity);
-            proyectileRb.transform.SetParent(enemyParent);
+            //proyectileRb.transform.SetParent(enemyParent);
             nextFireTime = Time.time + fireRate;
 
         }
@@ -49,7 +54,11 @@ public class EnemySpawner : MonoBehaviour
 
         
     }
-
+    public void Point()
+    {
+        ScoreManager.score = ScoreManager.score + point;
+        scoreText.text = "Score: " + ScoreManager.score.ToString();
+    }
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;

@@ -57,7 +57,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6077904103452944510}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.45149994, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.171031, y: 0.90568185, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -130,6 +130,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   proyectil1: {fileID: 8216621669141490473, guid: 541bd8829f8fcd34c9d94325bef991ef, type: 3}
-  playerangle: {fileID: 0}
   fireposition: {fileID: 5286419200441995481}
-  proyectileForce: 10
+  proyectileForce: 15

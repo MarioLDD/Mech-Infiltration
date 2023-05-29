@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4804290298725237595}
   - component: {fileID: 5641758400829116410}
   m_Layer: 11
-  m_Name: Misil2
+  m_Name: Misil
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2484711268711134973}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -28.073898, y: 4.7147326, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19bd6ae0048022f47b15a6d515a034a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2
+  damage: 3
   proyectileForce: 3
   radioExplision: 3
   capasObjetos:

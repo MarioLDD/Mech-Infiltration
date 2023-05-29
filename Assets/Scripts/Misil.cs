@@ -39,36 +39,25 @@ public class Misil : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("Player"))
         {
-           // if(parentObject != collision.gameObject)
+            // if(parentObject != collision.gameObject)
+
+            Collider2D[] collisionObj = Physics2D.OverlapCircleAll(transform.position, radioExplision, capasObjetos);
+            foreach (Collider2D objeto in collisionObj)
+            {
+                //Debug.Log("Objeto colisionado: " + objeto.gameObject.name);
+
+
+                if (objeto.gameObject.GetComponent<IHealthSystem>() != null)
                 {
-                Collider2D[] collisionObj = Physics2D.OverlapCircleAll(transform.position, radioExplision, capasObjetos);
-                foreach (Collider2D objeto in collisionObj)
-                {
-                    Debug.Log("Objeto colisionado: " + objeto.gameObject.name);
-
-
-
-                    if (collision.gameObject.GetComponent<HealthSystem>())
-                    {
-                        collision.gameObject.GetComponent<HealthSystem>().TakeDamage(damage);
-
-                    }
-                    else if (collision.gameObject.GetComponent<HealthSystemWalls>())
-                    {
-                        collision.gameObject.GetComponent<HealthSystemWalls>().TakeDamage(damage);
-
-                    }
-                    else
-                    {
-                        collision.gameObject.GetComponent<HealthSystemBoss>().TakeDamage(damage);
-                    }
-
-
+                    objeto.gameObject.GetComponent<IHealthSystem>().TakeDamage(damage);
                 }
-                Instantiate(particleSistem, transform.position, Quaternion.identity);
-                Destroy(gameObject);
+
+
             }
-            
+            Instantiate(particleSistem, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+
+
         }
     }
 

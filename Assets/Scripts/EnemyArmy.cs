@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class EnemyArmy : MonoBehaviour
 {
@@ -17,10 +19,13 @@ public class EnemyArmy : MonoBehaviour
     public float fireRate = 0.5f;
     private float nextFireTime;
 
+    public TMP_Text scoreText;
+    public int point=15;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+       
     }
 
     // Update is called once per frame
@@ -52,6 +57,15 @@ public class EnemyArmy : MonoBehaviour
 
 
     }
+
+    public void Point()
+    {
+        ScoreManager.score = ScoreManager.score + point;
+        scoreText.text = "Score: " + ScoreManager.score.ToString();
+    }
+
+
+
 
     private void OnDrawGizmosSelected()
     {

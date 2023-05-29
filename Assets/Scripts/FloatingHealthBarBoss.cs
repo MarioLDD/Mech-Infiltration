@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FloatingHealthBar : MonoBehaviour
+public class FloatingHealthBarBoss : MonoBehaviour
 {
     private Slider slider;
 

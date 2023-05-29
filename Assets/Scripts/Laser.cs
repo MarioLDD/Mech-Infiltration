@@ -8,38 +8,31 @@ public class Laser : MonoBehaviour
     public GameObject particleSistem;
 
     [StringInList("Player", "Enemy")] public string target;
-    
+
 
     // Start is called before the first frame update
     void Start()
     {
         //Destroy(gameObject, 2f);
     }
-    
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        
-        if(collision.gameObject.CompareTag(target))
+
+        if (collision.gameObject.CompareTag(target))
         {
-            Debug.Log(target);
-            if (collision.gameObject.GetComponent<HealthSystem>())
+            //Debug.Log(target);
+            if (collision.gameObject.GetComponent<IHealthSystem>() != null)
             {
-                collision.gameObject.GetComponent<HealthSystem>().TakeDamage(damage);
+                collision.gameObject.GetComponent<IHealthSystem>().TakeDamage(damage);
+                Instantiate(particleSistem, transform.position, Quaternion.identity);
 
-            }
-            else if(collision.gameObject.GetComponent<HealthSystemWalls>())
-            {
-                collision.gameObject.GetComponent<HealthSystemWalls>().TakeDamage(damage);
-
-            }
-            else
-            {
-                collision.gameObject.GetComponent<HealthSystemBoss>().TakeDamage(damage);
+                Destroy(gameObject);
             }
         }
         Instantiate(particleSistem, transform.position, Quaternion.identity);
 
         Destroy(gameObject);
-        
+
     }
 }

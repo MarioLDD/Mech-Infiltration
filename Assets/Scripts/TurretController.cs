@@ -63,4 +63,12 @@ public class TurretController : MonoBehaviour
 
 
     }
+
+
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(gameObject.transform.position, range);
+    }
 }
