@@ -9,7 +9,7 @@ public class CamaraPosition : MonoBehaviour
     public Vector3 startPosition;
     public Vector3 middlePosition;
     public Vector3 centerPosition;
-    Vector2 velocity;
+    Vector3 velocity;
     public float smoothTime = 0.5f;
     public float speed = 5;
     private bool moveToMiddle;
@@ -57,7 +57,7 @@ public class CamaraPosition : MonoBehaviour
 
         if (distanceToStart < 0.1f && camaraController.isRotating)
         {
-            player.transform.position = new Vector3(player.transform.position.x, 0, 10);
+            player.transform.position = new Vector2(player.transform.position.x, 0);
          //   Debug.Log(distanceToStart);
             camaraController.isRotating = false;
             transform.position = startPosition;
@@ -106,12 +106,12 @@ public class CamaraPosition : MonoBehaviour
 
     public void MoveToMiddle()
     {
-        transform.position = Vector2.SmoothDamp(transform.position, middlePosition, ref velocity, smoothTime, speed);
+        transform.position = Vector3.SmoothDamp(transform.position, middlePosition, ref velocity, smoothTime, speed);
     }
 
     public void MoveToCenter()
     {
-        transform.position = Vector2.SmoothDamp(transform.position, centerPosition, ref velocity, smoothTime, speed);
+        transform.position = Vector3.SmoothDamp(transform.position, centerPosition, ref velocity, smoothTime, speed);
     }
 
 
