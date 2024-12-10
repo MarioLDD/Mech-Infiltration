@@ -23,13 +23,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5136848907646628368}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.5, z: -0.0016373575}
   m_LocalScale: {x: 5.846894, y: 1.1041405, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8777919935663427230}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6077904103452944510
 GameObject:
@@ -40,8 +40,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8777919935663427230}
+  - component: {fileID: 526960241626784225}
   - component: {fileID: 873773809221795076}
-  - component: {fileID: 3869379234387726}
   m_Layer: 0
   m_Name: WeaponLaser_Simple
   m_TagString: Proyectil1
@@ -56,6 +56,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6077904103452944510}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.171031, y: 0.90568185, z: 1}
@@ -63,8 +64,24 @@ Transform:
   m_Children:
   - {fileID: 5286419200441995481}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &526960241626784225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6077904103452944510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd163da7b26bab447ae9a6f9e3126031, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  munition: {fileID: 6970571496935647580, guid: 541bd8829f8fcd34c9d94325bef991ef, type: 3}
+  firePoints:
+  - {fileID: 5286419200441995481}
+  fireRate: 0.1
+  projectileForce: 15
 --- !u!212 &873773809221795076
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -117,18 +134,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3869379234387726
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6077904103452944510}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b074fb643b74e0e4db8a43d7449f5e34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  proyectil1: {fileID: 8216621669141490473, guid: 541bd8829f8fcd34c9d94325bef991ef, type: 3}
-  fireposition: {fileID: 5286419200441995481}
-  proyectileForce: 15
