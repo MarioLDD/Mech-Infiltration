@@ -77,7 +77,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd163da7b26bab447ae9a6f9e3126031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  munition: {fileID: 6970571496935647580, guid: 541bd8829f8fcd34c9d94325bef991ef, type: 3}
+  munition: {fileID: 6970571496935647580, guid: 0b8a44a542697ad41a570c9824c51341, type: 3}
+  poolSize: 50
   firePoints:
   - {fileID: 5286419200441995481}
   fireRate: 0.1

@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1894934556910208409}
-  - component: {fileID: 1894934556910208408}
   - component: {fileID: 7105172463910090539}
+  - component: {fileID: 1894934556910208408}
   m_Layer: 0
   m_Name: MissileLauncher_Simple
   m_TagString: Proyectil2
@@ -34,6 +34,28 @@ Transform:
   - {fileID: 2322674799849248491}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7105172463910090539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1894934556910208410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 119035183e4533a43969989de15ad0cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  munition: {fileID: 2484711268711134973, guid: 43e44c8227cf2ff4eb1d3ff8678b6686, type: 3}
+  poolSize: 3
+  firePoints:
+  - {fileID: 2322674799849248491}
+  fireRate: 1
+  detectionRange: 100
+  hitLayers:
+    serializedVersion: 2
+    m_Bits: 503
+  targetSelectorTag: Enemy
 --- !u!212 &1894934556910208408
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -86,27 +108,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7105172463910090539
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1894934556910208410}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 119035183e4533a43969989de15ad0cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  munition: {fileID: 2484711268711134973, guid: 43e44c8227cf2ff4eb1d3ff8678b6686, type: 3}
-  firePoints:
-  - {fileID: 2322674799849248491}
-  fireRate: 1
-  detectionRange: 100
-  hitLayers:
-    serializedVersion: 2
-    m_Bits: 4087
-  targetSelectorTag: Enemy
 --- !u!1 &8076247670252248541
 GameObject:
   m_ObjectHideFlags: 0

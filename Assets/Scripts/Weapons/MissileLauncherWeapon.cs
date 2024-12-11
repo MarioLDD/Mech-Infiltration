@@ -6,7 +6,7 @@ public class MissileLauncherWeapon : Weapon
 {
     [SerializeField] private  float detectionRange = 50f;
     [SerializeField] private LayerMask hitLayers;
-    [TagSelector] [SerializeField] private string targetSelectorTag;
+    [StringInList("Player", "Enemy")][SerializeField] private string targetSelectorTag;
     public override void PerformShot()
     {
         if (Time.time > fireRate + lastShot)
@@ -15,11 +15,13 @@ public class MissileLauncherWeapon : Weapon
             {
                 if(IsEnemyWithinAim(item) != null)
                 {
-                    GameObject projectile = Instantiate(munition, item.position, item.rotation);
+                    GameObject projectile = ObjectPool.Instance.GetObject(munition, item.position, item.rotation);
 
-                    Misil misil = projectile.GetComponent<Misil>(); //codigo de seguimiento
+
+                    Missile misil = projectile.GetComponent<Missile>(); //codigo de seguimiento
                 }
-                Instantiate(munition, item.position, item.rotation);
+
+                ObjectPool.Instance.GetObject(munition, item.position, item.rotation);
             }
             lastShot = Time.time;
         }
@@ -30,11 +32,25 @@ public class MissileLauncherWeapon : Weapon
 
         if (hit.collider != null)
         {
-            if (hit.collider.CompareTag("Enemy"))
+            if (hit.collider.CompareTag(targetSelectorTag))
             {
                 return hit.collider.transform;
             }
         }
         return null;
     }
+
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.magenta;
+
+        foreach (var firePoint in firePoints)
+        {
+            Gizmos.DrawLine(firePoint.position, firePoint.position + firePoint.up * detectionRange);
+        }
+    }
+
+
+
 }

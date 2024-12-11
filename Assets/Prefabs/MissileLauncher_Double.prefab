@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 2081688476794876655}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.73, y: 0, z: 0}
+  m_LocalPosition: {x: 0.75, y: -0.2, z: 0}
   m_LocalScale: {x: 0.79, y: 0.79, z: 0.79}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -142,7 +142,7 @@ Transform:
   m_GameObject: {fileID: 5027555888262333428}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.73, y: 0, z: 0}
+  m_LocalPosition: {x: -0.75, y: -0.2, z: 0}
   m_LocalScale: {x: 0.79, y: 0.79, z: 0.79}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -248,6 +248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   munition: {fileID: 2484711268711134973, guid: 43e44c8227cf2ff4eb1d3ff8678b6686, type: 3}
+  poolSize: 6
   firePoints:
   - {fileID: 9201579636074877061}
   - {fileID: 2779917512620056990}
@@ -255,7 +256,7 @@ MonoBehaviour:
   detectionRange: 50
   hitLayers:
     serializedVersion: 2
-    m_Bits: 4087
+    m_Bits: 503
   targetSelectorTag: Enemy
 --- !u!1 &8555454063014652584
 GameObject:

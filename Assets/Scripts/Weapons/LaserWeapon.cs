@@ -10,7 +10,8 @@ public class LaserWeapon : Weapon
         {
             foreach (var item in firePoints)
             {
-                GameObject projectile = Instantiate(munition, item.position, item.rotation);
+                GameObject projectile = ObjectPool.Instance.GetObject(munition, item.position, item.rotation);
+
                 Rigidbody2D projectile_Rb = projectile.GetComponent<Rigidbody2D>();
 
                 projectile_Rb.AddRelativeForce(Vector2.up * projectileForce, ForceMode2D.Impulse);
