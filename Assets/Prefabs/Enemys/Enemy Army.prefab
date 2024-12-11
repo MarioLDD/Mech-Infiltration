@@ -233,7 +233,7 @@ MonoBehaviour:
   poolSize: 50
   firePoints:
   - {fileID: 3772127232213609758}
-  fireRate: 0.1
+  fireRate: 0.2
   projectileForce: 15
 --- !u!50 &5900106023248616331
 Rigidbody2D:

@@ -22,7 +22,7 @@ public class Door : MonoBehaviour
         }
     }
 
-    private void OpenDoor()
+    public void OpenDoor()
     {
         Debug.Log("Door opened!");
 

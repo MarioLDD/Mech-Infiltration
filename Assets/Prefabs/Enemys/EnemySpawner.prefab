@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6de5e94a556ecd3459f3f29467c890c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lootPrefab: {fileID: 3343214216004652425, guid: 3860e1a2d57f0e44eb0bac74ccc67d83, type: 3}
+  lootPrefab: {fileID: 0}
 --- !u!114 &4940005872366774150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,7 +127,7 @@ MonoBehaviour:
   poolSize: 25
   firePoints:
   - {fileID: 3143591746109724321}
-  fireRate: 0.5
+  fireRate: 5
 --- !u!212 &3143591746109724320
 SpriteRenderer:
   m_ObjectHideFlags: 0

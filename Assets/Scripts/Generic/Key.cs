@@ -13,7 +13,6 @@ public class Key : MonoBehaviour
 }
 public enum KeyType
 {
-    GoldenKey,
-    SilverKey,
-    BronzeKey,
+    RedKey,
+    BlueKey,
 }

@@ -100,6 +100,11 @@ public class PlayerController : MonoBehaviour
             secundaryWeapon.PerformShot();
         }
     }
+
+    public void Death()
+    {
+        SceneManager.LoadScene("GameOverMenu");
+    }
 }
 public enum WeaponSlots
 {
